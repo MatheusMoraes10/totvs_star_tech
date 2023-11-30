@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index.html</title>
+</head>
+<body>
+    
+    <script>
+        function pulaLinha() {
+            document.write("<br>")
+        }
+
+        function mostrarCabecalho() {
+            document.write("<header><h1>&gt;&gt;COMEX&lt;&lt;</h1><h2>&#58;&#58;Lista de Clientes</h2><hr></header>")        
+        }
+
+        function mostrarConteudo(codigo, nome, mesNascimento, anoNascimento) {
+            document.write("<h2>&#45; Código: " + codigo + "</h2>")
+            document.write("Nome&#58; " + nome);
+            pulaLinha()
+            document.write("Mês de nascimento&#58 " + mesNascimento);
+            pulaLinha()
+            document.write("Ano de nascimento&#58; " + anoNascimento)
+            pulaLinha();
+            document.write("<hr>");
+        }
+
+        function mostrarRodape() {
+            document.write("<footer><br><hr><br><p><b>&#46;&#58;&#58;Alura LEVEL UP&#58;&#58;&#46;</b><br></p><br></footer>")
+        }
+
+        let customersArray = [
+            { 
+                cod: 1, 
+                name: "Fulano",
+                birth: "Fevereiro",
+                birthYear: 1980
+            }, 
+            { 
+                cod: 2, 
+                name: "Beltrano",
+                birth: "Maio",
+                birthYear: 1981
+            }
+        ];
+
+        let customers1 = customersArray[0].name;
+
+        mostrarCabecalho();
+
+        mostrarConteudo(customersArray[0].cod, customersArray[0].name, customersArray[0].birth, customersArray[0].birthYear);
+
+        mostrarConteudo(2, "Beltrano", "Maio", 1981);
+
+        mostrarConteudo(3, "Sicrano", "Novembro", 1984);
+
+        var iFulano = 2023 - 1980
+
+        var iBeltrano = 2023 -1981
+
+        var iSicrano = 2023 - 1984
+
+    </script>
+</body>
+</html>
