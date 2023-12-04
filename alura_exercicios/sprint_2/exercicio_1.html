@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index.html</title>
+</head>
+
+<body>
+
+    <script>
+        
+        function pulaLinha() {
+            document.write("<br>")
+        }
+
+        function mostrarCabecalho() {
+            document.write("<header><h1>&gt;&gt;COMEX&lt;&lt;</h1><h2>&#58;&#58;Lista de Clientes</h2></header>")
+        }
+
+        function mostrarConteudo(codigo, nome, mesNascimento, anoNascimento, ageNumber) {
+            document.write("<hr>");
+            document.write("<h2>&#45; Código: " + codigo + "</h2>")
+            document.write("Nome&#58; " + nome);
+            pulaLinha()
+            document.write("Mês de nascimento&#58 " + mesNascimento);
+            pulaLinha()
+            document.write("Ano de nascimento&#58; " + anoNascimento)
+            pulaLinha();
+            document.write("Caracteristica Etária: " + ageRange(ageNumber))
+        }
+
+        function mostrarRodape() {
+            document.write("<footer><br><hr><p><b>&#46;&#58;&#58;Alura LEVEL UP&#58;&#58;&#46;</b></p></footer>")
+        }
+
+        function ageCalculator(birthYear) {
+            return (currentYear - birthYear)
+        }
+
+        function ageRange(age) {
+            if (age <= 17) {
+                return "ADOLESCENTE"
+            }
+
+            if (age >= 18 && age <= 29) {
+                return "JOVEM"
+            }
+
+            if (age >= 30 && age <= 59) {
+                return "ADULTO"
+            }
+
+            if (age >= 60) {
+                return "IDOSO"
+            }
+        }
+
+        let customersArray = [
+            {
+                cod: 1,
+                name: "Fulano",
+                birth: "Fevereiro",
+                birthYear: 2006
+            },
+            {
+                cod: 2,
+                name: "Beltrano",
+                birth: "Maio",
+                birthYear: 2000
+            },
+            {
+                cod: 3,
+                name: "Sicrano",
+                birth: "Novembro",
+                birthYear: 1950
+            }
+        ];
+
+        let currentYear = prompt("Digite o ano atual")
+
+        //Program execution by function call
+
+        mostrarCabecalho();
+
+        mostrarConteudo(customersArray[0].cod, customersArray[0].name, customersArray[0].birth, customersArray[0].birthYear, ageCalculator(customersArray[0].birthYear));
+
+        mostrarConteudo(customersArray[1].cod, customersArray[1].name, customersArray[1].birth, customersArray[1].birthYear, ageCalculator(customersArray[1].birthYear));
+
+        mostrarConteudo(customersArray[2].cod, customersArray[2].name, customersArray[2].birth, customersArray[2].birthYear, ageCalculator(customersArray[2].birthYear));
+
+        mostrarRodape();
+
+    </script>
+</body>
+
+</html>
