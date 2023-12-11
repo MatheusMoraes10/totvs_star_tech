@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+<body>
+    <header>
+        <h1>&gt;&gt;COMEX&lt;&lt;</h1>
+        <h2>&#58;&#58;Lista de Clientes</h2>
+    </header>
+    <hr>
+    <label for="">Nome:</label>
+    <input type="text">
+    <br>
+    <button>Criar</button>
+    <hr>
+    <!-- List categories -->
+    <h2>&#58;&#58;Lista de Categorias</h2>
+    <hr>
+    <script>
+        // Variables
+
+        let button = document.querySelector("button")
+
+        button.onclick = createCategory;
+
+        let count = 0;
+        
+        // Functions
+        function skipLine() {
+            document.write("<br>")
+        }
+        
+        function createCategory() {
+            count += 1
+            let name = document.querySelector("input")
+            let divCustomer = document.createElement("div");
+            divCustomer.innerHTML = "Código: " + count + "<br>" + "Nome: " + name.value + "<hr>"
+
+            document.body.append(divCustomer);
+        }
+
+        //Printing Page elements
+    </script>
+</body>
+</html>
