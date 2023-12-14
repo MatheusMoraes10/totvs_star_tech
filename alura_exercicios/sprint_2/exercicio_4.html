@@ -15,6 +15,7 @@
     <input type="text">
     <br>
     <button>Criar</button>
+    <button id="btShowList">Exibir Lista</button>
     <hr>
     <!-- List categories -->
     <h2>&#58;&#58;Lista de Categorias</h2>
@@ -23,12 +24,13 @@
         // Variables
 
         let button = document.querySelector("button")
+        let btShowList = document.getElementById("btShowList")
         let codeRegister = [];
         let themeRegister = [];
+        let count = 0;
 
         button.onclick = createCategory;
-
-        let count = 0;
+        btShowList.onclick = listThemes;
         
         // Functions
         function skipLine() {
@@ -38,13 +40,17 @@
         function createCategory() {
             count++;
             let name = String(document.querySelector("input").value);
-            let divCustomer = document.createElement("div");
-            
             codeRegister.push(parseInt(count))
             themeRegister.push(name)
-            
-            divCustomer.innerHTML = "Código: " + codeRegister[count-1] + "<br>" + "Nome: " + themeRegister[count-1] + "<hr>"
-            document.body.append(divCustomer);
+            alert('*** CATEGORIA CADASTRADA COM SUCESSO!!! ***')
+        }
+
+        function listThemes() {
+            for (let index = 0; index < codeRegister.length; index++) {
+                let divCustomer = document.createElement("div");
+                divCustomer.innerHTML = "Código: " + codeRegister[index] + "<br>" + "Nome: " + themeRegister[index] + "<hr>"
+                document.body.append(divCustomer);
+            }
         }
 
         //Printing Page elements
