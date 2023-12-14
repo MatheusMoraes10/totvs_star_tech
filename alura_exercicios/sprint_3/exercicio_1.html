@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+
+<body>
+    <script>
+        // Variables.
+        let currentYear = yearValid(parseInt(prompt("Qual o ano Atual?")));
+        let numberRegisters = registersNumverValid(parseInt(prompt("Qual o níumero de registros?")));
+        let totalAges = 0;
+        let counter = 0;
+        
+        // Functions
+        function skipLine() {
+            document.write("<br>")
+        }
+
+        function showHeader() {
+            document.write("<header><h1>&gt;&gt;COMEX&lt;&lt;</h1><h2>&#58;&#58;Lista de Clientes</h2></header>");
+            document.write("<hr>");
+        }
+
+        function customers() {
+            while (counter < numberRegisters) {
+                counter++;
+                let name = prompt("Qual o nome do " + counter +"° cliente")
+                let birthMonth = prompt("Qual o mês de nascimento do "+  counter +"° cliente?")
+                let birthYear = prompt("Qual o ano de nascimento do "+ counter +"° cliente?")
+                let currentAge = currentYear - birthYear
+                
+                // printing user data
+                document.write("<h2>&#45; Código: " + counter + "</h2>")
+                skipLine();
+                document.write("Nome&#58; " + name);
+                skipLine()
+                document.write("Mês de nascimento&#58 " + birthMonth);
+                skipLine()
+                document.write("Ano de nascimento&#58; " + birthYear);
+                document.write("<hr>");
+
+                //adding user statistics for later printing
+                totalAges += currentAge;
+            }
+        }
+
+        function statistic() {
+            document.write("&#42;&#42;&#42; Estatística &#42;&#42;&#42;")
+            skipLine();
+            document.write("Soma de idades&#58 " + totalAges)
+            skipLine();
+            document.write("Média das idades&#58 " + Math.round(totalAges/numberRegisters));
+        }
+
+        function showFooter() {
+            document.write("<footer><br><hr><p><b>&#46;&#58;&#58;Alura LEVEL UP&#58;&#58;&#46;</b></p></footer>");
+        }
+
+        function yearValid(year) {
+            let yearGretterZero = false;
+
+            while (yearGretterZero == false) {
+                if (year <= 0) {
+                    alert('Ano inválido, ele é menor ou igual a 0')
+                    year = parseInt(prompt("Qual o ano atual?"));
+                } else {
+                    yearGretterZero = true;
+                }
+            }
+            return year;
+        }
+
+        function registersNumverValid(numberReg) {
+            let cadasterGretterZero = false;
+
+            while (cadasterGretterZero == false) {
+                if (numberReg <= 0) {
+                    alert('Número de registros inválido, ele é menor ou igual a 0')
+                    numberReg = parseInt(prompt("Qual o níumero de registros?"));
+                } else {
+                    cadasterGretterZero = true;
+                }
+            }
+            return numberReg;
+        }
+
+        // Show content on screen.
+        showHeader();
+        customers();
+        statistic();
+        showFooter();
+
+    </script>
+</body>
+
+</html>
