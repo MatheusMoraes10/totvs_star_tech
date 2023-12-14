@@ -23,8 +23,8 @@
         // Variables
 
         let button = document.querySelector("button")
-        let codeRegister = []
-        let themeRegister = []
+        let codeRegister = [];
+        let themeRegister = [];
 
         button.onclick = createCategory;
 
@@ -36,14 +36,14 @@
         }
         
         function createCategory() {
-            count += 1
-            let name = document.querySelector("input")
+            count++;
+            let name = String(document.querySelector("input").value);
             let divCustomer = document.createElement("div");
             
-            codeRegister.push(count)
-            themeRegister.push(themeRegister)
+            codeRegister.push(parseInt(count))
+            themeRegister.push(name)
             
-            divCustomer.innerHTML = "Código: " + codeRegister[count] + "<br>" + "Nome: " + themeRegister[count] + "<hr>"
+            divCustomer.innerHTML = "Código: " + codeRegister[count-1] + "<br>" + "Nome: " + themeRegister[count-1] + "<hr>"
             document.body.append(divCustomer);
         }
 
