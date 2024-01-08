@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 03</title>
+</head>
+<body>
+    <header>
+        <h1>&gt;&gt;COMEX&lt;&lt;</h1>
+        <h2>&#58;&#58;Lista de Clientes</h2>
+    </header>
+    <hr>
+    <label for="">Nome:</label>
+    <input type="text">
+    <br>
+    <button>Criar</button>
+    <button id="btShowList">Exibir Lista</button>
+    <hr>
+    <!-- List categories -->
+    <h2>&#58;&#58;Lista de Categorias</h2>
+    <hr>
+    <script>
+        // Variables
+
+        let button = document.querySelector("button")
+        let btShowList = document.getElementById("btShowList")
+        let codeRegister = [];
+        let themeRegister = [];
+        let count = 1;
+
+        button.onclick = createCategory;
+        btShowList.onclick = listThemes;
+        
+        // Functions
+        function skipLine() {
+            document.write("<br>")
+        }
+        
+        function createCategory() {
+            let themeExisting = false
+            let name = String(document.querySelector("input").value);
+            for (let index = 0; index < themeRegister.length; index++) {
+                if (name == themeRegister[index]) {
+                    themeExisting = true
+                }
+            }
+            if (themeExisting == true) {
+                    alert("*** Já existe essa categoria! ***")
+            } else {
+                    codeRegister.push(parseInt(count))
+                    themeRegister.push(name)
+                    alert('*** CATEGORIA CADASTRADA COM SUCESSO!!! ***')
+                    count++;
+            }
+        }
+
+        function listThemes() {
+            for (let index = 0; index < codeRegister.length; index++) {
+                let divCustomer = document.createElement("div");
+                divCustomer.innerHTML = "Código: " + codeRegister[index] + "<br>" + "Nome: " + themeRegister[index] + "<hr>"
+                document.body.append(divCustomer);
+            }
+        }
+
+        //Printing Page elements
+    </script>
+</body>
+</html>
